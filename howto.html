@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RD NUM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+  div {
+    color:white;
+  }
+  body {
+  background-color: black;
+}
+</style>
+<body>
+  <div class="form-row">
+    <div class="col-md-12 mb-12">
+      <label for="validationServer01">Number</label>
+      <input type="number" min="0" and max="20"class="form-control" ondblclick="setTargetNumber()" id="targetNumberInput" placeholder="N" value=""  required>
+      <label style="color:white" id="setNum" for="validationServer02">0</label>
+    </div>
+  </div>
+  
+  <script>
+    function setTargetNumber() {
+      const targetNumberInput = document.getElementById('targetNumberInput');
+      const targetNumber = parseInt(targetNumberInput.value);
+      
+      document.getElementById('setNum').textContent = targetNumber;
+      if (!isNaN(targetNumber)) {
+        localStorage.setItem('targetNumber', targetNumber);
+        alert("Target number set: " + targetNumber);
+      } else {
+        alert("Please enter a valid number.");
+      }
+    }
+  </script>
+</body>
+</html>
